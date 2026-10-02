@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty In Your Bag curates personalized skincare, beauty and self-care packages designed around your lifestyle, skin type and goals.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BYB - Waitlist">
+    <meta property="og:description" content="Your perfect beauty routine, packed just for you. Join the waitlist for early access.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BYB - Waitlist">
+    
+    <!-- Favicon Fallback -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b1d0c%22/><text x=%2250%22 y=%2255%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22%23f7d76b%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22>BYB</text></svg>">
+
+    <title>BYB-Waitlist</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            Curating your beauty experience...
+        </div>
+    </div>
+
+    <!-- Background Sparkles -->
+    <div id="sparkle-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero reveal">
+        <div class="container">
+            <div class="logo">
+                BYB
+            </div>
+            
+            <div id="hero-content">
+                <h1>
+                    Curated beauty <br>
+                    Designed around you
+                </h1>
+                <p>
+                    Beauty in your bag creates personalized skincare, self-care and lifestyle packages tailored to your skin, routine and lifestyle. We're almost ready.
+                </p>
+
+                <p class="italics"><i>
+                    We're preparing something you'll actually want to wait for.<br>
+                    Join the waitlist and be among the first to experience it.</i>
+                    <br>
+                </p>
+
+<form id="waitlist-form" name="Waitlist" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="Waitlist">
+    
+    <input type="text" name="Name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    
+    <!-- Radio or other fields -->
+     <div class="personality-question">
+                        What's your beauty personality?
+                    </div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="personality" value="Minimalist" required>
+                            <div class="radio-custom"></div>
+                            Minimalist
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="personality" value="Soft Glam">
+                            <div class="radio-custom"></div>
+                            Soft Glam
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="personality" value="Corporate Chic">
+                            <div class="radio-custom"></div>
+                            Corporate Chic
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="personality" value="Campus Glow">
+                            <div class="radio-custom"></div>
+                            Campus Glow
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="personality" value="Self-Care Queen">
+                            <div class="radio-custom"></div>
+                            Self-Care Queen
+                        </label>
+                    </div>
+    
+    <button type="submit" class="btn-submit">Join Waitlist</button>
+</form>
+                <div class="form-footer">
+                    <br>
+                    Early members receive launch updates, exclusive discounts and first access.
+                </div>
+            </div>
+
+            <!-- Success State (Hidden by default) -->
+            <div id="success-state" class="success-state">
+                <h2 class="success-title">Welcome!</h2>
+                <p>You're officially on the list!</p>
+                <p>We'll be packing something beautiful for you soon.</p>
+                <p class="italics" style="margin-top: 20px;"><i>While you wait, follow us behind the scenes.</i></p>
+                
+                <div class="social-buttons">
+            <button class="btn-social" onclick="window.open('https://www.instagram.com/_beautyinyourbag?igsh=d2Y5MTNpbjA3bXps&utm_source=qr', '_blank')">Instagram</button>                    <button class="btn-social">TikTok</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Two: Why BYB -->
+    <section class="brand-story reveal">
+        <div class="container">
+            <h2>Why Beauty In Your Bag?</h2>
+            <p class="brand-text">We believe beauty should feel personal.</p>
+            <p class="brand-text">Instead of endlessly scrolling through products, we curate complete beauty experiences tailored to you. Whether you're a student, a corporate girlie, a bride-to-be or simply investing in yourself, we'll build a package that fits your lifestyle.</p>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features reveal">
+        <div class="container-large">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Personalized</h3>
+                    <p class="card-text">Curated for your skin type, routine and lifestyle.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Ready to Enjoy</h3>
+                    <p class="card-text">Beautifully packaged and delivered straight to your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Thoughtfully Curated</h3>
+                    <p class="card-text">Only products we'd confidently recommend ourselves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sneak Peek Section -->
+    <section class="sneak-peek reveal">
+        <div class="container-large">
+            <h2>Coming at Launch</h2>
+            <div class="pills-container">
+                <span class="pill">Weekend Reset Kit</span>
+                <span class="pill">Student Survival Kit</span>
+                <span class="pill">Corporate Glow Kit</span>
+                <span class="pill">Fragrance Collections</span>
+                <span class="pill">Makeup Essentials</span>
+                <span class="pill">Haircare Packages</span>
+                <span class="pill">Seasonal Limited Editions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof reveal">
+        <div class="container">
+            <h2 class="proof-text">
+                Not another beauty store.<br>
+                A beauty companion.<br>
+                Helping women discover routines they'll actually love.
+            </h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer reveal">
+        <div class="container">
+            <div class="footer-brand">Beauty In Your Bag</div>
+            <div class="footer-tagline">
+                <span>Curated beauty.</span>
+                <span>Personalized care.</span>
+                <span>Delivered beautifully.</span>
+            </div>
+            <div class="footer-links">
+<a href="https://www.instagram.com/_beautyinyourbag?igsh=d2Y5MTNpbjA3bXps&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>                <a href="#">TikTok</a>
+                <a href="#">Email</a>
+            </div>
+            <p class="copyright">&copy; 2026 Beauty In Your Bag.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

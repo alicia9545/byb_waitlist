@@ -1,0 +1,483 @@
+/* ==========================================================================
+   1. RESET & VARIABLES (MERGED WITH YOUR UI)
+   ========================================================================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #f8f4ec;
+    --text-color: #3b1d0c;
+    --accent-color: #f7d76b;
+    --accent-hover: #f2cf52;
+    --border-light: #d8cfc3;
+    --text-muted: #6c5645;
+}
+
+body{
+    background: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. GLOBAL LAYOUTS & ANIMATIONS
+   ========================================================================== */
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.container-large {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   3. LOADING SCREEN & SPARKLES
+   ========================================================================== */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-content {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    animation: pulseText 2s infinite;
+}
+
+#sparkle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-sparkle {
+    position: absolute;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px 2px rgba(247, 215, 107, 0.6);
+    animation: driftFade 10s infinite linear;
+}
+
+@keyframes driftFade {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   4. HERO SECTION (YOUR UI)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+    margin: auto;
+    border-radius: 50%;
+    background: var(--text-color);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: 64px;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 42px;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.italics {
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   5. FORM & SUCCESS STATE
+   ========================================================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+input {
+    padding: 18px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 2px solid var(--border-light);
+    background: white;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+input:focus {
+    border-color: var(--accent-color);
+}
+
+.personality-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 20px;
+    border: 2px solid var(--border-light);
+    border-radius: 14px;
+    background: white;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.radio-option:hover {
+    border-color: var(--accent-color);
+}
+
+.radio-option input {
+    display: none;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-light);
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.radio-option input:checked + .radio-custom {
+    border-color: var(--accent-color);
+}
+
+.radio-option input:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+button {
+    padding: 20px;
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.form-footer {
+    margin-top: 30px;
+    color: #a18b77;
+    font-size: 14px;
+}
+
+/* Success State */
+.success-state {
+    display: none;
+    padding: 40px 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-title {
+    font-size: 48px;
+    color: var(--accent-hover);
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-social {
+    background: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    padding: 12px 25px;
+}
+
+.btn-social:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* ==========================================================================
+   6. BRAND STORY & FEATURES
+   ========================================================================== */
+.brand-story {
+    padding-top: 80px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 10px 30px rgba(59, 29, 12, 0.03);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.feature-card .card-text {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(59, 29, 12, 0.08);
+}
+
+.feature-card:hover::before {
+    border-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   7. SNEAK PEEK (PILLS) & SOCIAL PROOF
+   ========================================================================== */
+.pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.pill {
+    background: white;
+    border: 1px solid var(--border-light);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.pill:hover {
+    border-color: var(--accent-hover);
+    background: var(--bg-color);
+    transform: translateY(-3px);
+}
+
+.social-proof {
+    padding: 100px 20px;
+}
+
+.proof-text {
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.site-footer {
+    border-top: 1px solid var(--border-light);
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+.footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.footer-tagline {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-hover);
+}
+
+.copyright {
+    font-size: 14px;
+    color: #a18b77;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (Based on your provided @media)
+   ========================================================================== */
+@media(max-width: 768px) {
+    h1 {
+        font-size: 42px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    p {
+        font-size: 17px;
+    }
+    .footer-tagline {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
